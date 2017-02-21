@@ -1,0 +1,2 @@
+class EventInfoController < CrudController
+end
