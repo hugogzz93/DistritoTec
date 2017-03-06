@@ -1,0 +1,5 @@
+- if object
+  .card
+    .card-header = "Edit #{object.class.name}"
+    .card-block
+      = render partial: "#{object.class.name.downcase}_view", locals: { object: object }
