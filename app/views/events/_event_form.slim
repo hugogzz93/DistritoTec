@@ -1,0 +1,7 @@
+= simple_form_for object do |f|
+  .form-inputs
+    .row
+      .col-4
+        = f.input :title, autofocus: true
+  .form-actions
+    = f.button :submit, 'Save', class: 'btn-primary'

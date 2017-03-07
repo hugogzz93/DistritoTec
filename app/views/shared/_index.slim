@@ -6,6 +6,8 @@
           = link_to "New #{klass}", send("new_#{klass.underscore}_path", parent )
       - elsif klass == "User"
           = link_to "New #{klass}", new_user_registration_path
+      - else 
+          = link_to "New #{klass}", send("new_#{klass.underscore}_path")
     - if objects.any?
       = render partial: "#{klass.underscore}_table", locals: {\
                                objects: objects }
