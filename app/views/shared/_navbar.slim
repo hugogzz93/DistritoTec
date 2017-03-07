@@ -1,8 +1,9 @@
 nav.navbar.navbar-default.navbar-toggleable-md.navbar-light.bg-faded
-  = link_to 'Distrito Tec', root_path, class: "navbar-brand"
+  = link_to 'Refimex', root_path, class: "navbar-brand"
   #navbarSupportedContent.collapse.navbar-collapse
     -if user_signed_in?
       ul.navbar-nav.mr-auto
-      .nav-link = current_user.email
+	      = link_to 'Events', events_path, class:'nav-link'
+      = link_to current_user.email, edit_user_path(current_user), class:'nav-link'
       button.btn.btn-danger
-        = link_to('Logout', destroy_user_session_path, method: :DELETE)
+        = link_to(t(:logout), sign_out_path, method: :DELETE)
