@@ -56,6 +56,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
