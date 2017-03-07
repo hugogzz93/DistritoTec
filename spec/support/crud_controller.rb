@@ -1,25 +1,24 @@
-RSpec.shared_examples "a crud controller" do |subject|
+RSpec.shared_examples "a crud controller" do
 	include Devise::Test::ControllerHelpers
 	let(:klass) { model.to_s.capitalize.constantize }
 	let(:klass_controller) { "#{model.to_s.capitalize.pluralize}Controller" }
 	login_user
 
-	describe 'GET #index', type: :request do
+
+	it "should have a current_user" do
+	  expect(subject.current_user).to_not eq(nil)
+	end
+
+	describe 'GET #index' do
 		before do
 			@instances = FactoryGirl.create_list(model, 3)
-			get send("#{model.to_s.pluralize}_path")
-			debugger
+			get :index
+			assert_response :success
 		end
-
-		it "should find all instances" do 
-			expect(klass).to receive(:all)
-		end
-
+		
 		it "should return all instances" do
-			expect(assigns[model.to_s.pluralize]).to eq(@instances)
+			expect(assigns[:objects]).to eq(@instances)
 		end
-
-		# it should be_successful
 	end
 
 	# describe 'GET #new' do
@@ -32,18 +31,18 @@ RSpec.shared_examples "a crud controller" do |subject|
 	# 	end
 	# end
 
-	describe 'POST #create' do
-	end
+	# describe 'POST #create' do
+	# end
 
-	describe 'GET #show' do
-	end
+	# describe 'GET #show' do
+	# end
 
-	describe 'GET #edit' do
-	end
+	# describe 'GET #edit' do
+	# end
 
-	describe 'PATCH #update' do
-	end
+	# describe 'PATCH #update' do
+	# end
 
-	describe 'DELETE #destroy' do
-	end
+	# describe 'DELETE #destroy' do
+	# end
 end
