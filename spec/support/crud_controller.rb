@@ -1,6 +1,6 @@
 RSpec.shared_examples "a crud controller" do
 	include Devise::Test::ControllerHelpers
-	let(:klass) { model.to_s.capitalize.constantize }
+	let(:klass) { model.to_s.camelcase.constantize }
 	let(:klass_controller) { "#{model.to_s.capitalize.pluralize}Controller" }
 	login_user
 
@@ -11,7 +11,8 @@ RSpec.shared_examples "a crud controller" do
 
 	describe 'CRUD GET #index' do
 		before do
-			@instances = FactoryGirl.create_list(model, 3)
+			FactoryGirl.create_list(model, 3)
+			@instances = klass.all
 			get :index
 			assert_response :success
 		end
