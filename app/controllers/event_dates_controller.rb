@@ -1,0 +1,2 @@
+class EventDatesController < CrudController
+end
