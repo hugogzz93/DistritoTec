@@ -1,0 +1,11 @@
+= simple_form_for object, controller:'users_controller', action: 'update', \
+  html: {  }, defaults: { } do |f|
+  .form-inputs
+    = f.input :email, placeholder: "example@mail.com"
+    = f.input :password, hint: ("#{@minimum_password_length} characters minimum"\
+                         if @minimum_password_length)
+    = f.input :password_confirmation
+
+  .form-actions
+    = f.button :submit, 'Guardar', class: 'btn-primary'
+
