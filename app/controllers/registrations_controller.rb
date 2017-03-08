@@ -3,10 +3,14 @@ class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def create
-    if User.create user_admin_params
-      redirect_to root_path
+    if user_signed_in?
+      if User.create user_admin_params
+        redirect_to root_path
+      else
+        render :new
+      end
     else
-      render :new
+      super
     end
   end
 
