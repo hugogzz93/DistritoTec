@@ -9,13 +9,15 @@ class Event < ApplicationRecord
   end
 
   def next_event_date
-  	event_dates.order('date desc').last
+  	event_dates.where('date >= :now', now: Time.zone.now)
+               .order('date desc')
+               .last
   end
 
-  def create_date
+  def create_date(date = Time.zone.now)
   	edate = EventDate.new
   	edate.event_id = self.id
-  	edate.date = Time.zone.now
+  	edate.date = date
   	edate.save
   end
 
