@@ -14,9 +14,8 @@
 
   shared_context 'a crud new' do
     it "should have blank instance" do
-      expect(klass).to receive(:new)
+      expect(klass).to receive(:new).and_call_original
       get :new
-      assert_response :success
     end
   end
 
@@ -33,6 +32,7 @@
 
   shared_context 'a crud show' do
     before do 
+
       @instance = FactoryGirl.create model
       get :show, params: { id: @instance.id }
       assert_response :success
