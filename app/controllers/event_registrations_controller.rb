@@ -1,0 +1,2 @@
+class EventRegistrationsController < CrudController
+end
