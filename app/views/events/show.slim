@@ -1,1 +1,23 @@
-= @object.to_json
+/ ruby:
+  obj = @object.to_json.html_safe
+.card
+  .card-header Event Info
+  .card-content
+    table.table
+      thead
+        tr
+          th Title
+          th Created at
+          th Updated at
+          th Recurrence
+      tbody
+        tr
+          td
+            = @object.title
+          td
+            = @object.created_at
+          td
+            = @object.updated_at
+          td
+            = @object.recurrence
+
