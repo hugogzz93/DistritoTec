@@ -4,38 +4,70 @@ RSpec.describe Event, type: :model do
 
 	subject { FactoryGirl.create :event }
 
+	def registration(user)
+		subject.event_registrations.where(user_id: user.id).first
+	end
+
 	describe '#register' do 
+		before :each do 
+			@user = FactoryGirl.create :user
+			@next_event = FactoryGirl.create :event_date,
+																			  event: subject,
+																			  date: Time.zone.now + 1.day
+		end
+
 		context "When there are no event dates" do 
-			xit "should return false" do 
+			before do 
+				subject.event_dates.destroy_all
+				EventRegistration.destroy_all
 			end
 
-			xit "should not create the registration" do 
+			it "should return false" do 
+				expect(subject.register @user).to be_falsey
+			end
+
+			it "should not create the registration" do 
+				expect(EventRegistration.all.count).to eq(0)
+				expect(subject.event_registrations.where(user_id: @user.id).any?)
+							.to be_falsey
 			end
 		end
 
 		context "When there is an event date" do 
 			context "and the user hasn't registered" do 
-				xit "should create the registration" do 
+				before do 
+					subject.register @user
+				end
+				it "should create the registration" do 
+					expect(subject.event_registrations.where(user_id: @user.id).any?)
+								 .to be
 				end
 
-				xit "should be for the next date" do 
+				it "should be for the next date" do 
+					expect(registration(@user).event_date).to eq(@next_event)
 				end
 
-				xit "should have the correct user" do 
+				it "should have the correct user" do 
+					expect(subject.event_registrations.last.user).to eq(@user)
 				end
 
-				xit "should have the correct event" do 
+				it "should have the correct event" do 
+					expect(EventRegistration.last.event).to eq(subject)
 				end
 			end
 
 			context "and the user has already registered" do 
-				xit "should return false" do 
+				before do 
+					subject.register @user
 				end
 
-				xit "should not create a new registration" do 
+				it "should return false" do
+					expect(subject.register @user).to be_falsey
 				end
 
-				xit "should not affect the previous registration" do 
+				it "should not create a new registration" do
+					expect(@next_event.event_registrations.where(user_id: @user.id).count)
+								.to eq(1)
 				end
 			end
 		end
