@@ -4,6 +4,12 @@ class Event < ApplicationRecord
   has_many :event_registrations, through: :event_dates, dependent: :destroy
   after_create :create_date
 
+  def last_date
+    event_dates.order('date desc')
+               .last
+               .date
+  end
+
   def next_date
   	next_event_date.date
   end
