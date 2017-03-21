@@ -16,6 +16,11 @@
 @import "sweetalert";
 @import "./*";
 
+tbody td span{
+  // height: 40px;
+
+}
+
 body {
   font-family: $font-family-sans-serif;
   font-size: $font-size-base;

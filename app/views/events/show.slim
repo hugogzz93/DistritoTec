@@ -4,21 +4,21 @@
     table.table
       thead
         tr
-          th Title
-          th Created at
-          th Updated at
-          th Recurrence
-          th Actions
+          th Título
+          th Fecha de creación
+          th Fecha de actualización
+          th Recurrencia
+          th Acciones
       tbody
         tr
           td
             = @object.title
           td
-            = @object.created_at
+            = @object.created_at.strftime("%B %d, %Y")
           td
-            = @object.updated_at
+            = @object.updated_at.strftime("%B %d, %Y")
           td
             = @object.recurrence
           td
             span.badge.badge-danger#register-btn data-user-id = current_user.id data-event-id = @object.id
-              | Register
+              | Registrar
