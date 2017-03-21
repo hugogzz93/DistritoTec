@@ -13,5 +13,9 @@ table.table
           span.badge.badge-primary
             = link_to 'Ver', event_path(o)
           | \
+          span.badge.badge-warning
+            = link_to 'Editar', edit_event_path(o)
+          | \
           span.badge.badge-danger
             = link_to 'Borrar', event_path(o), method: :delete
+
