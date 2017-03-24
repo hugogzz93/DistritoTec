@@ -1,11 +1,12 @@
 = simple_form_for object do |f|
+  = f.input :event, input_html: { value: parent.id }, as: :hidden
   .form-inputs
     .row
       .col-4
         = f.input :title, autofocus: true
     .row
     	.col-4
-	    	= f.simple_fields_for :event_date do |ed|
+	    	= f.simple_fields_for :event_dates do |ed|
 	    		= ed.input :date, as: :datetime
   .form-actions
     = f.button :submit, 'Save', class: 'btn-primary'

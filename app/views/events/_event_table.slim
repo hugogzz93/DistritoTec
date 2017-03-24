@@ -8,7 +8,7 @@ table.table
     - objects.each do |o|
       tr
         td = o.title
-        td = o.last_date.strftime("%B %d, %Y")
+        td = o.last_date_formatted
         td
           span.badge.badge-primary
             = link_to 'Ver', event_path(o)

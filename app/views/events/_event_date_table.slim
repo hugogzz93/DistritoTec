@@ -1,0 +1,10 @@
+.card-content
+  table.table
+    thead
+      tr
+        th Date
+    tbody
+      - objects.each do |o|
+        tr
+          td
+            = o.date
