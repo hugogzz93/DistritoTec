@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # get '/hello/:user_id', to: 'event_registration#register', as: 'register_user'
 
   get 'event/:event_id/event_dates/new', to: 'event_dates#new', as: 'new_event_date'
-  resources :event_dates, only: [:index, :destroy, :create]
+  resources :event_dates, only: [:index, :destroy, :create, :show]
   resources :events do 
   	resources :event_info
   end

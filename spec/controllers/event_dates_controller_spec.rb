@@ -46,7 +46,7 @@ RSpec.describe EventDatesController, type: :controller do
 		end
 
 		it "should create the appropriate values" do 
-			expect(@object.date.to_i).to eq(@params[:date].to_i)
+			expect(@object.date.to_i).to be_within(0.0000000001).of(@params[:date].to_i)
 		end
 
 		it "should have the correct parent" do 
@@ -54,13 +54,27 @@ RSpec.describe EventDatesController, type: :controller do
 		end
 	end
 
-	# describe 'CRUD GET #show' do
-	# 	it "should show the correct object" do 
-	# 		get :show, params: { id: event_date.id, event_id: event.id }
-	# 		assert_response :success
-	# 		expect(assigns[:object].id).to eq(event_date.id)
-	# 	end
-	# end
+	describe 'CRUD GET #show' do
+
+		before do
+			FactoryGirl.create_list(:event_registration, 3)
+		  3.times { FactoryGirl.create :event_registration, event_date: event_date }
+		  @users = User.where(event_dates: {id: EventDate.first.id})
+		  						 .joins(event_registrations: :event_date)
+			get :show, params: { id: event_date.id }
+			assert_response :success
+		end
+
+		it "should show the correct date" do 
+			expect(assigns[:object].id).to eq(event_date.id)
+		end
+
+		it "should show the registered users" do 
+			expect(assigns[:users]).to match_array(@users)
+		end
+
+
+	end
 
 	# describe 'CRUD GET #edit' do
 	# 	before do 

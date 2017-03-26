@@ -37,8 +37,8 @@ class Event < ApplicationRecord
 
   def next_event_date
   	event_dates.where('date >= :now', now: Time.zone.now)
-               .order('date desc')
-               .last
+               .order('date')
+               .first
   end
 
   def create_date(date = Time.zone.now)
@@ -46,9 +46,9 @@ class Event < ApplicationRecord
   	edate.save
   end
 
-  def register(user)
+  def register(user, event_date = next_event_date)
     begin
-      next_event_date.register user
+      event_date.register user
     rescue
       false
     end

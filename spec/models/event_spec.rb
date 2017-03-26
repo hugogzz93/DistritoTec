@@ -96,7 +96,7 @@ RSpec.describe Event, type: :model do
 																						 date: Time.zone.now + 1.day
 		end
 
-		it "should return the closes next date" do 
+		it "should return the closest next date" do 
 			expect(subject.next_event_date).to eq(@next_most_recent)
 		end
 

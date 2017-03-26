@@ -10,6 +10,11 @@ class EventDatesController < CrudController
 		@parent = Event.find params[:event_id]
 	end
 
+	def show
+		super
+		@users = @object.users
+	end
+
 	def collection_path
 		events_path
 	end
