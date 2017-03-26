@@ -1,5 +1,8 @@
 .card
-  .card-header Event Info
+  .card-header 
+    | Event Info
+    button.btn.btn-primary.float-right
+      = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
   .card-content
     table.table
       thead
@@ -22,6 +25,8 @@
           td
             span.badge.badge-danger#register-btn data-user-id = current_user.id data-event-id = @object.id
               | Register
+
+= render partial: 'event_info/event_grid', locals: { objects: @event_info }
 
 = render partial: 'shared/index', locals: { objects: @event_dates,
                                             klass: 'EventDate',

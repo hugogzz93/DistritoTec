@@ -1,0 +1,8 @@
+.d-flex
+	- objects.each do |o|
+		.p-2
+			.card
+				.card-img-top
+				.card-block
+					.card-title = o.title
+					= link_to 'Ver mas', event_event_info_path(event_id: o.id), class: 'btn btn-primary'

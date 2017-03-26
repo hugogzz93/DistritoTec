@@ -1,0 +1,10 @@
+= simple_form_for object, url: event_event_info_index_path do |f|
+	.form-inputs
+		.row
+			.col-4
+				= f.input :title, autofocus: true, require: true
+		.row
+			.col-4
+				= f.input :description, require: true
+	.form-actions
+		= f.button :submit, 'Guardar', class: 'btn-primary'

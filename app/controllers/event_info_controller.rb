@@ -16,4 +16,8 @@ class EventInfoController < CrudController
 			render :new
 		end
 	end
+
+	def collection_path
+		event_path(id: @object.event_id)
+	end
 end

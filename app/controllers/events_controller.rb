@@ -6,6 +6,7 @@ class EventsController < CrudController
 
 	def show
 		super
+		@event_info = @object.event_info
 		@event_dates = @object.event_dates
 	end
 
