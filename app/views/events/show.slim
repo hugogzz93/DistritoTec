@@ -1,7 +1,7 @@
 .card
   .card-header 
     | Event Info
-    button.btn.btn-primary.float-right
+    button.btn.btn-primary.float-right.btn-sm
       = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
   .card-content
     table.table
@@ -26,8 +26,9 @@
             span.badge.badge-primary
               = link_to 'View', event_date_path(id: @object.id)
 
-= render partial: 'event_info/event_grid', locals: { objects: @event_info }
+= render partial: 'event_info/event_feed', locals: { objects: @event_info }
 
-= render partial: 'shared/index', locals: { objects: @event_dates,
-                                            klass: 'EventDate',
-                                            parent: @object }
+= render partial: 'event_dates/event_date_grid', locals:\
+                                              { objects: @event_dates[0, 5],
+                                                klass: 'EventDate',
+                                                parent: @object }
