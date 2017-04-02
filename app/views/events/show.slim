@@ -24,10 +24,7 @@
             = @object.recurrence
           td
             span.badge.badge-primary
-              = link_to event_date(id: @object.id)
-            | /
-            span.badge.badge-danger.register-btn data-user-id = current_user.id data-event-id = @object.id
-              | Register
+              = link_to 'View', event_date_path(id: @object.id)
 
 = render partial: 'event_info/event_grid', locals: { objects: @event_info }
 

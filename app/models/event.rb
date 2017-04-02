@@ -10,7 +10,7 @@ class Event < ApplicationRecord
     next_date = next_event_date
     begin
       if next_date
-        next_event.date
+        next_date.date
       else
         event_dates.order('date desc')
                  .last

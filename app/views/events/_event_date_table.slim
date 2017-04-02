@@ -9,7 +9,7 @@
         tr
           td
             = o.date.strftime("%B %d, %Y")
-          - if o.date > Time.zone.now
-	          td
+          td
+            - if o.date > Time.zone.now
 	          	span.badge.badge-danger.register-btn data-user-id = current_user.id data-event-id = @object.id data-date-id = o.id
 	              | Register
