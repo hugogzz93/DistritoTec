@@ -1,4 +1,5 @@
 class EventDatesController < CrudController
+	before_action :permit_if_admin, except: [:show]
 
 	def index
 		super

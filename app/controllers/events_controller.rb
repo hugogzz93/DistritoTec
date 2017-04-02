@@ -1,4 +1,6 @@
 class EventsController < CrudController
+	before_action :permit_if_admin, except: [:show, :index]
+	
 	def new
 		super
 		@object.event_dates.build
