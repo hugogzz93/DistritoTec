@@ -2,9 +2,10 @@
 	.card
 		.card-header 
 			= o.title
-			button.btn.btn-danger.float-right.btn-sm
-		    	= link_to 'Borrar',
-		    						 event_event_info_path(event_id: @object.id, id: o.id),
-		    						 method: :delete
+			-if current_user.admin?
+				button.btn.btn-danger.float-right.btn-sm
+			    	= link_to 'Borrar',
+			    						 event_event_info_path(event_id: @object.id, id: o.id),
+			    						 method: :delete
 
 		.card-block = o.description

@@ -1,4 +1,6 @@
 class EventInfoController < CrudController
+	before_action :permit_if_admin, except: [:show, :index]
+
 	def index
 		@objects = model.where event_id: params[:event_id]
 	end
