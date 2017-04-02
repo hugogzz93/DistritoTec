@@ -1,5 +1,5 @@
 .card
-  .card-header = t(object.class.name)
+  .card-header = "#{object.class.name.split(/(?=[A-Z])/).join(' ').capitalize}"
   .card-block
     = render partial: "#{object.class.name.downcase}_show", locals:\
                         {object: object}

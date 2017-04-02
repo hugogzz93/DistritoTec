@@ -1,0 +1,15 @@
+.card-content
+  table.table
+    thead
+      tr
+        th Date
+        th Actions
+    tbody
+      - objects.each do |o|
+        tr
+          td
+            = o.date.strftime("%B %d, %Y")
+          td
+            - if o.date > Time.zone.now
+	          	span.badge.badge-danger.register-btn data-user-id = current_user.id data-event-id = @object.id data-date-id = o.id
+	              | Register

@@ -1,5 +1,8 @@
 .card
-  .card-header Event Info
+  .card-header 
+    | Event Info
+    button.btn.btn-primary.float-right.btn-sm
+      = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
   .card-content
     table.table
       thead
@@ -20,5 +23,12 @@
           td
             = @object.recurrence
           td
-            span.badge.badge-danger#register-btn data-user-id = current_user.id data-event-id = @object.id
-              | Registrar
+            span.badge.badge-primary
+              = link_to 'View', event_date_path(id: @object.id)
+
+= render partial: 'event_info/event_feed', locals: { objects: @event_info }
+
+= render partial: 'event_dates/event_date_grid', locals:\
+                                              { objects: @event_dates[0, 5],
+                                                klass: 'EventDate',
+                                                parent: @object }

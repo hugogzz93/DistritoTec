@@ -1,0 +1,8 @@
+= simple_form_for object do |f|
+  .form-inputs
+    .row
+      .col-4
+    		= f.input :date, as: :datetime
+  .form-actions
+    = f.button :submit, 'Save', class: 'btn-primary'
+	= f.input :event_id, input_html: { value: parent.id }, as: :hidden

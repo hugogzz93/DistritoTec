@@ -1,0 +1,11 @@
+.card
+  .card-header Event Dates
+  .card-content
+    table.table
+      thead
+        tr
+          th Date
+      tbody
+        tr
+          td
+            = objects.date.strftime("%B %d, %Y")

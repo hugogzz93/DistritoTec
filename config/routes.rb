@@ -6,11 +6,10 @@ Rails.application.routes.draw do
                                        as: 'register_user'
   # get '/hello/:user_id', to: 'event_registration#register', as: 'register_user'
 
+  get 'event/:event_id/event_dates/new', to: 'event_dates#new', as: 'new_event_date'
+  resources :event_dates, only: [:index, :destroy, :create, :show]
   resources :events do 
   	resources :event_info
-  	resources :event_dates do 
-  		# resources :event_registrations, only: [:index]
-  	end
   end
   resources :users, only: [:index, :edit, :update, :destroy]
   devise_for :users, controllers: { registrations: 'registrations' }

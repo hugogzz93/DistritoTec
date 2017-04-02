@@ -1,13 +1,34 @@
 class Event < ApplicationRecord
   has_many :event_info, dependent: :destroy
-  has_many :event_dates, dependent: :destroy
+  has_many :event_dates, inverse_of: :event, dependent: :destroy
   has_many :event_registrations, through: :event_dates, dependent: :destroy
   after_create :create_date
 
+  accepts_nested_attributes_for :event_dates
+
   def last_date
-    event_dates.order('date desc')
-               .last
-               .date
+    next_date = next_event_date
+    begin
+      if next_date
+        next_date.date
+      else
+        event_dates.order('date desc')
+                 .last
+                 .date
+      end
+    rescue
+    end
+  end
+
+  def last_date_formatted
+    begin
+      last_date.strftime("%B %d, %Y")
+    rescue
+    end
+  end
+
+  def users
+    next_event_date.users
   end
 
   def next_date
@@ -16,8 +37,8 @@ class Event < ApplicationRecord
 
   def next_event_date
   	event_dates.where('date >= :now', now: Time.zone.now)
-               .order('date desc')
-               .last
+               .order('date')
+               .first
   end
 
   def create_date(date = Time.zone.now)
@@ -25,9 +46,9 @@ class Event < ApplicationRecord
   	edate.save
   end
 
-  def register(user)
+  def register(user, event_date = next_event_date)
     begin
-      next_event_date.register user
+      event_date.register user
     rescue
       false
     end
