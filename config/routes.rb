@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  root to: "home#frontpage"
+  
   delete '/sign_out', to: 'sessions#log_out', as: 'sign_out'
 
   post '/event_registrations/:event_id', to: 'event_registrations#register',

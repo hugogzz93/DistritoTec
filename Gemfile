@@ -19,6 +19,8 @@ end
 
 gem 'simple_form'
 
+gem 'font-awesome-sass'
+
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
