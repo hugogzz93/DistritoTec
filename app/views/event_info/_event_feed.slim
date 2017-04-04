@@ -4,8 +4,5 @@
 			= o.title
 			-if current_user.admin?
 				button.btn.btn-danger.float-right.btn-sm
-			    	= link_to 'Borrar',
-			    						 event_event_info_path(event_id: @object.id, id: o.id),
-			    						 method: :delete
-
+			    	= link_to 'Borrar', event_event_info_path(event_id: @object.id, id: o.id), method: :delete
 		.card-block = o.description

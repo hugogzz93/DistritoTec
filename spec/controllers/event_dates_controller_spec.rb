@@ -6,11 +6,16 @@ RSpec.describe EventDatesController, type: :controller do
 	let(:klass_controller) { "#{model.to_s.capitalize.pluralize}Controller" }
 	let(:event) { FactoryGirl.create(:event) }
 	let(:event_date)  { FactoryGirl.create(:event_date, event_id: event.id) }
-	login_user
+	login_admin
 
 
 	it "should have a current_user" do
 	  expect(subject.current_user).to_not eq(nil)
+	end
+
+	it "should be an administrator" do
+		# subject.current_user.admin!
+		expect(subject.current_user.admin?).to be_true
 	end
 
 	# describe 'CRUD GET #index' do

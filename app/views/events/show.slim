@@ -1,31 +1,36 @@
 .card
   .card-header 
-    | Event Info
     - if current_user.admin?
-      button.btn.btn-primary.float-right.btn-sm
-        = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
+      | Event Info
+    - else
+      = @object.title
   .card-content
-    table.table
-      thead
-        tr
-          th Título
-          th Fecha de creación
-          th Fecha de actualización
-          th Recurrencia
-          th Acciones
-      tbody
-        tr
-          td
-            = @object.title
-          td
-            = @object.created_at.strftime("%B %d, %Y")
-          td
-            = @object.updated_at.strftime("%B %d, %Y")
-          td
-            = @object.recurrence
-          td
-            span.badge.badge-primary
-              = link_to 'View', event_date_path(id: @event_dates.first.id)
+    - if current_user.admin?
+      table.table
+        thead
+          tr
+            th Título
+            th Fecha de creación
+            th Fecha de actualización
+            th Recurrencia
+            th Acciones
+        tbody
+          tr
+            td
+              = @object.title
+            td
+              = @object.created_at.strftime("%B %d, %Y")
+            td
+              = @object.updated_at.strftime("%B %d, %Y")
+            td
+              = @object.recurrence
+            td
+              span.badge.badge-primary
+                / = link_to 'View', event_date_path(id: @event_dates.first.id)
+                = link_to 'Nueva Fecha', new_event_date_path(event_id: @object.id)
+              | /
+              span.badge.badge-primary
+                = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
 
 = render partial: 'event_info/event_feed', locals: { objects: @event_info }
 

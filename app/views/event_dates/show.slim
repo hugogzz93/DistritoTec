@@ -1,0 +1,8 @@
+.card
+  .card-header = @object.date.strftime("%B %d, %Y")
+  .card-block
+    - if @users.any?
+      = render partial: "event_dates/user_table", locals: {\
+                               objects: @users }
+    - else
+      p.col = "Sin usuarios registrados"

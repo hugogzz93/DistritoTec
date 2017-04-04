@@ -3,6 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :event_registrations
+  has_many :event_registrations, dependent: :destroy
   enum credentials: [:client, :admin]
 end

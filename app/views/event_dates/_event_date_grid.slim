@@ -5,5 +5,9 @@
 				.card-block
 					.card-title = o.date.strftime("%B %d, %Y")
 					- if o.date > Time.zone.now
-						= link_to 'Registrar', event_event_info_path(event_id: o.id), class: 'btn btn-primary register-btn', data: {date_id: o.id, user_id: current_user.id}
+						- if current_user.admin?
+							= link_to 'Ver Registro', event_date_path(id: o.id)
+						- else
+							span.badge.badge-danger.register-btn data-user-id = current_user.id data-event-id = @object.id data-date-id = o.id
+								| Registrar
 

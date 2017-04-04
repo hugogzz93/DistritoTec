@@ -6,6 +6,7 @@ FactoryGirl.define do
     password_confirmation "12345678"
 
     factory :admin do
+    	credentials { User::credentials[:admin] }
     end
   end
 end
