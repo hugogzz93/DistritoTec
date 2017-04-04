@@ -21,12 +21,12 @@ $font_3: Arial;
 $font_4: sans-serif;
 
 //urls
-$url_0: url('img/bg.jpg');
+$url_0: url('img/callejeroCover.jpg');
 $url_1: url('img/callout.jpg');
 
 .bg-primary {
   color: #fff !important;
-  background-color: #337ab7 !important;
+  background-color: #2BBCB6 !important;
 }
 
 .text-primary {
@@ -168,6 +168,11 @@ body {
 	height: 100%;
 	background: $url_0 no-repeat center center scroll;
 	background-size: cover;
+	
+	
+}
+.header background{
+	opacity: 0.5;
 }
 .about {
 	padding: 50px 0;
@@ -191,6 +196,9 @@ body {
 }
 .portfolio-item {
 	margin-bottom: 30px;
+}
+.img{
+	opacity: 0.5;
 }
 .img-portfolio {
 	margin: 0 auto;

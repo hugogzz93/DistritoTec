@@ -6,7 +6,7 @@ nav#sidebar-wrapper
       i.fa.fa-times
     li.sidebar-brand
       a href="#top"
-        | Distrito Tec
+        | Callejero
     - if user_signed_in?
       -if current_user.admin?
         li
@@ -35,8 +35,8 @@ nav#sidebar-wrapper
 /! Header
 header#top.header
   .text-vertical-center
-    h1 Distrito Tec
-    h3 Lorem ipsum dolor sit amet
+    h1 Callejero
+    h3 Conoce más de como puedes participar
     br/
     a.btn.btn-dark.btn-lg href="#about"  Find Out More
 /! About
@@ -44,9 +44,9 @@ section#about.about
   .container
     .row
       .col-lg-12.text-center
-        h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        h2 ¿Qué es callejero?
         p.lead
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          | Convivencia callejera, música en vivo, food trucks, juegos de mesa gigantes, mercado, expresiones de arte. Evento gratuito, y para tod@s.
     /! /.row
   /! /.container
 /! Services
@@ -55,59 +55,44 @@ section#services.services.bg-primary
   .container
     .row.text-center
       .col-lg-10.offset-1
-        h2 Our Services
+        h2 Secciones de Callejero
         hr.small/
         .row
           .col-md-3.col-sm-6
-            .service-item
-              span.fa-stack.fa-4x
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-cloud.fa-stack-1x.text-primary
+     
               h4
-                strong Service Name
+                strong El Escenario
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              a.btn.btn-light href="#"  Learn More
+              a.btn.btn-light href="#"  Participa
           .col-md-3.col-sm-6
-            .service-item
-              span.fa-stack.fa-4x
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-compass.fa-stack-1x.text-primary
+      
               h4
-                strong Service Name
+                strong El Mercado
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              a.btn.btn-light href="#"  Learn More
+              a.btn.btn-light href="#"  Participa
           .col-md-3.col-sm-6
-            .service-item
-              span.fa-stack.fa-4x
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-flask.fa-stack-1x.text-primary
+         
               h4
-                strong Service Name
+                strong Actividades Especiales
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              a.btn.btn-light href="#"  Learn More
+              a.btn.btn-light href="#"  Participa
           .col-md-3.col-sm-6
-            .service-item
-              span.fa-stack.fa-4x
-                i.fa.fa-circle.fa-stack-2x
-                i.fa.fa-shield.fa-stack-1x.text-primary
+            
               h4
-                strong Service Name
+                strong Retas
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              a.btn.btn-light href="#"  Learn More
+              a.btn.btn-light href="#"  Participa
         /! /.row (nested)
       /! /.col-lg-10
     /! /.row
   /! /.container
-/! Callout
-aside.callout
-  .text-vertical-center
-    h1 Vertically Centered Text
+
 /! Portfolio
 section#portfolio.portfolio
   .container
     .row
       .col-lg-10.offset-1.text-center
-        h2 Our Work
+        h2 Eventos Pasados
         hr.small/
         .row
           .col-md-6
@@ -126,8 +111,7 @@ section#portfolio.portfolio
             .portfolio-item
               a href="#" 
                 = image_tag("img/portfolio-4.jpg", class: 'img-portfolio img-responsive')
-        /! /.row (nested)
-        a.btn.btn-dark href="#"  View More Items
+        
       /! /.col-lg-10
     /! /.row
   /! /.container
@@ -136,12 +120,12 @@ aside.call-to-action.bg-primary
   .container
     .row
       .col-lg-12.text-center
-        h3 Lorem ipsum dolor sit!
-        a.btn.btn-lg.btn-light href="#"  Click Me!
-        a.btn.btn-lg.btn-dark href="#"  Look at Me!
+        h3 Conoce mas de DistritoTec
+        a.btn.btn-lg.btn-light href="#"  Visita la Página
+        
 /! Map
 section#contact.map
-  iframe frameborder="0" height="100%" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A&output=embed" width="100%" 
+  iframe frameborder="0" height="100%" marginheight="0" marginwidth="0" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.6078077869715!2d-100.29524451524722!3d25.651138984187995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bfb83b20d20b%3A0x5c16451b53aaead8!2sDistritoTec!5e0!3m2!1sen!2smx!4v1491337334778" width="100%" 
   br/
   small
     a href="https://maps.google.com/maps?f=q&source=embed&hl=en&geocode=&q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&aq=0&oq=twitter&sll=28.659344,-81.187888&sspn=0.128789,0.264187&ie=UTF8&hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&t=m&z=15&iwloc=A" 
@@ -171,9 +155,6 @@ footer
           li
             a href="#" 
               i.fa.fa-twitter.fa-fw.fa-3x
-          li
-            a href="#" 
-              i.fa.fa-dribbble.fa-fw.fa-3x
         hr.small/
         p.text-muted Copyright © DistritoTec 2014
   a#to-top.btn.btn-dark.btn-lg href="#top" 
