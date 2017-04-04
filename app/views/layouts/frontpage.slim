@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title DistritoTec
+    = csrf_meta_tags
+    = stylesheet_link_tag    'frontpage', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'frontpage', 'data-turbolinks-track': 'reload'
+    
+    /! Custom Fonts
+    
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" /
+
+  body data-controller = controller.controller_name data-action = controller.action_name
+      = yield
