@@ -1,10 +1,12 @@
 = simple_form_for object, controller:'users_controller', action: 'update', \
   html: {  }, defaults: { } do |f|
+
   .form-inputs
     = f.input :email, placeholder: "example@mail.com"
     = f.input :password, hint: ("#{@minimum_password_length} characters minimum"\
                          if @minimum_password_length)
     = f.input :password_confirmation
+    = f.input :special_type, collection: object.class.special_types.keys
     - if user_signed_in? && current_user.admin?
       = f.input :credentials, label: "credentials", as: :radio_buttons, collection: User.credentials.keys
 

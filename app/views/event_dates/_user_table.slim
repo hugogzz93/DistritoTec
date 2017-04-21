@@ -2,12 +2,12 @@ table.table
   thead
     tr
       th Email
+      th Type
       th Última Sesión
-      th Sesiones
 
   tbody
     - objects.each do |u|
       tr
         td = u.email
+        td = event_date.event_registrations.find_by(user_id: u.id).special_type
         td = u.last_sign_in_at.strftime("%B %d, %Y") if u.last_sign_in_at
-        td = u.sign_in_count

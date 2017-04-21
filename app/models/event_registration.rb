@@ -3,6 +3,7 @@ class EventRegistration < ApplicationRecord
 	belongs_to :user
 	validates :user_id, uniqueness: { scope: :event_date_id, 
 																		message: 'User is already registered' }
+  enum special_type: [:visitor, :vendor, :host]
 
 	def event
 		event_date.event

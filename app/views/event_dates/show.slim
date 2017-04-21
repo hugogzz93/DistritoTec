@@ -3,6 +3,6 @@
   .card-block
     - if @users.any?
       = render partial: "event_dates/user_table", locals: {\
-                               objects: @users }
+                               objects: @users, event_date: @object }
     - else
       p.col = "Sin usuarios registrados"
