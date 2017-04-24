@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   has_many :event_info, dependent: :destroy
   has_many :event_dates, inverse_of: :event, dependent: :destroy
   has_many :event_registrations, through: :event_dates, dependent: :destroy
-  after_create :create_date
+  # after_create :create_date
 
   accepts_nested_attributes_for :event_dates
 
