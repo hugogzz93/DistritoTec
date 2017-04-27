@@ -8,6 +8,5 @@
 						- if current_user.admin?
 							= link_to 'Ver Registro', event_date_path(id: o.id)
 						- else
-							span.badge.badge-danger.register-btn data-user-id = current_user.id data-event-id = @object.id data-date-id = o.id
-								| Registrar
+							= link_to 'Registrar', new_event_registration_path(event_id: parent.id), class: 'btn.btn-info'
 

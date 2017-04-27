@@ -3,6 +3,9 @@
     .row
       .col-4
     		= f.input :date, as: :datetime
+    .row
+    	.col-12
+    		= f.input :address, as: :text
   .form-actions
     = f.button :submit, 'Save', class: 'btn-primary'
 	= f.input :event_id, input_html: { value: parent.id }, as: :hidden

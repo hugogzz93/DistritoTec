@@ -1,1 +1,5 @@
-= render partial: 'shared/index', locals: { objects: @objects, klass: 'Event' }
+.row
+	.col-3
+		= render partial: 'shared/event_side_bar', locals: { event_dates: EventDate.limit(4).reverse}
+	.col-9
+		= render partial: 'shared/index', locals: { objects: @objects, klass: 'Event' }
