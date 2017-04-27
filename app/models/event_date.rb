@@ -5,7 +5,6 @@ class EventDate < ApplicationRecord
 	default_scope { order(created_at: :desc) }
 
 	def register(user)
-		registration = event_registrations.new user_id: user.id, special_type: user.special_type
-		registration.save
+		event_registrations.create user_id: user.id, special_type: user.special_type
 	end
 end
