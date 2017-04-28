@@ -1,0 +1,24 @@
+ul
+	li.row
+		.col-2
+		.date-content.col-8
+			.date-address
+				= link_to 'Nueva Fecha', new_event_date_path(event_id: @object.id)
+	.greyline
+
+	- event_dates.each do |ed|
+		li.row
+			.date-block.col-2 class="#{ed.date < Time.zone.now ? 'past' : ''}"
+				.row
+					h3
+						= ed.date.strftime("%d")
+				.row
+					= ed.date.strftime("%b")
+			.date-content.col-8
+				.date-address
+					= ed.address.size > 20 ? "#{ed.address[0..18]}..." : ed.address
+			.col-1
+				= link_to event_date_path(id: ed.id) do
+					span.align-bottom
+						t.fa.fa-angle-right.fa-2x
+		.greyline

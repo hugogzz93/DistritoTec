@@ -1,0 +1,9 @@
+- events.each do |e|
+	= link_to event_path(id: e.id) do
+		.card style="width: 20rem;"
+			= image_tag e.avatar.url(:medium), class: 'card-img-left'
+			.card-block
+				.card-title
+					= e.title
+				.card-text
+					| Description

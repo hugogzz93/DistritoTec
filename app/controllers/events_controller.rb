@@ -14,6 +14,6 @@ class EventsController < CrudController
 
 	def object_params
 	  super.merge params.require(:event)
-	                    .permit(event_dates_attributes: [:date])
+	                    .permit(:avatar, event_dates_attributes: [:date])
 	end
 end

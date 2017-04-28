@@ -2,6 +2,11 @@ class Event < ApplicationRecord
   has_many :event_info, dependent: :destroy
   has_many :event_dates, inverse_of: :event, dependent: :destroy
   has_many :event_registrations, through: :event_dates, dependent: :destroy
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+                    default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+
   # after_create :create_date
 
   accepts_nested_attributes_for :event_dates
