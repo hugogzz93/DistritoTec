@@ -6,10 +6,11 @@
           = ei.title.size > 20 ? "#{ei.title[0..18]}..." : ei.title
       li data-title="dates"
         | Fechas
-      - unless current_user.admin?
-        li data-title="register"
-          | Registrar
-      - else
+      / - unless current_user.admin?
+      /   li data-title="register"
+      /     | Registrar
+      / - else
+      - if current_user.admin?
         li
           = link_to '+ Agregar', new_event_event_info_path(event_id: @object.id)
         li
@@ -29,11 +30,12 @@
           = "#{ei.title}"
         .body
           = ei.description
-    .tab id="register" class="#{@event_info.any? ? '' : 'active'}"
-      .title
-        span.sub 
-          = "0#{@event_info.count + 1}. "
-        | Registrar
+    / .tab id="register" class="#{@event_info.any? ? '' : 'active'}"
+    /   .title
+    /     span.sub 
+    /       = "0#{@event_info.count + 1}. "
+    /     | Registrar
+
     .tab id="dates"
       .title
         span.sub 

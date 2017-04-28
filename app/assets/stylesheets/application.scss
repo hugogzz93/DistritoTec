@@ -24,6 +24,15 @@ tbody td span{
 
 }
 
+.hidden {
+  display: none;
+}
+
+.squished {
+  max-height: 0px;
+  overflow: hidden;
+}
+
 body {
   font-family: $font-family-sans-serif;
   font-size: $font-size-base;

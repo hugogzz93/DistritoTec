@@ -1,3 +1,35 @@
+- unless current_user.admin?
+  - if EventRegistration.where(user_id: current_user.id, event_date_id: @object.id).any?
+    .alert.alert-success role="alert"
+      strong
+        | Registrado
+  - else
+  	.card
+  		.card-header Registro
+  		.card-block
+  			 = render partial: 'event_registration_form.slim', locals: {event_date: @object, event_registration: @object.event_registrations.new }
+
+
+.card
+  .card-header
+  .card-block
+    table.table
+      thead
+        tr
+          th Asistiendo
+          th Visitantes
+          th Mercantes
+          th Anfitriones
+      tbody
+        tr
+          td = @object.users.count
+          td = @object.visitors.count
+          td = @object.merchants.count
+          td = @object.hosts.count
+
+
+
+
 .card
   .card-header = @object.date.strftime("%B %d, %Y")
   .card-block

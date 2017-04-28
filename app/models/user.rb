@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :event_registrations, dependent: :destroy
   enum credentials: [:client, :admin]
-  enum special_type: [:visitor, :vendor, :host]
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428022948) do
+ActiveRecord::Schema.define(version: 20170428190207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,19 @@ ActiveRecord::Schema.define(version: 20170428022948) do
   end
 
   create_table "event_registrations", force: :cascade do |t|
-    t.integer  "event_date_id",             null: false
-    t.integer  "user_id",                   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "special_type",  default: 0
+    t.integer  "event_date_id",                    null: false
+    t.integer  "user_id",                          null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "special_type",         default: 0
+    t.string   "business_name"
+    t.string   "person_name"
+    t.string   "product_name"
+    t.string   "phone"
+    t.string   "social_media_url"
+    t.string   "business_description"
+    t.string   "email"
+    t.integer  "stand"
     t.index ["event_date_id"], name: "index_event_registrations_on_event_date_id", using: :btree
     t.index ["user_id"], name: "index_event_registrations_on_user_id", using: :btree
   end
@@ -73,7 +81,6 @@ ActiveRecord::Schema.define(version: 20170428022948) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "credentials",            default: 0,  null: false
-    t.integer  "special_type",           default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

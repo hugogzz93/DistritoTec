@@ -1,0 +1,35 @@
+= simple_form_for event_registration do |f|
+	.form-inputs
+		= f.input :event_date_id, as: :hidden, input_html: { value: event_date.id }
+		= f.input :user_id, as: :hidden, input_html: { value: current_user.id}
+		.row
+			.col-4
+				= f.input :person_name, label: 'Nombre'
+			.col-6
+				= f.input :email, label: 'Correo'
+		.row
+			.col-4
+				= f.input :special_type, label: 'Tipo', as: :select,
+				 					 collection: EventRegistration::special_types
+		.merchant-fields.squished
+			.row
+				.col-6
+					= f.input :business_name
+			.row
+				.col-6
+					= f.input :product_name
+			.row
+				.col-4
+					= f.input :phone
+			.row
+				.col-8
+					= f.input :social_media_url
+			.row
+				.col-8
+					= f.input :business_description, as: :text
+			.row
+				.col-4
+					= f.input :stand
+
+	.form-actions
+		= f.button :submit, 'Guardar', class: 'btn-primary'

@@ -1,0 +1,29 @@
+.card
+	.card-header Registro
+	.card-block
+		table.table
+			tr
+				th Nombre
+				td = @object.person_name
+			tr
+				th Email
+				td = @object.email
+			tr
+				th Tipo
+				td = @object.special_type
+			- if @object.vendor?
+				tr
+					th Telefono
+					td = @object.phone
+				tr
+					th Producto
+					td = @object.product_name
+				tr
+					th Redes Sociales
+					td = @object.social_media_url
+				tr
+					th Nombre Empresa
+					td = @object.business_name
+				tr
+					th Descripción
+					td = @object.business_description

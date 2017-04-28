@@ -4,6 +4,7 @@ table.table
       th Email
       th Type
       th Última Sesión
+      th Acciones
 
   tbody
     - objects.each do |u|
@@ -11,3 +12,7 @@ table.table
         td = u.email
         td = event_date.event_registrations.find_by(user_id: u.id).special_type
         td = u.last_sign_in_at.strftime("%B %d, %Y") if u.last_sign_in_at
+        td
+          span.badge.badge-primary 
+            = link_to 'Ver', event_registration_path(id: @object.registration_for(u).id)
+
