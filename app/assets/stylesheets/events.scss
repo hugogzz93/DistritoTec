@@ -9,3 +9,117 @@ body[data-controller="event_dates"] {
 		color: $brand-success;
 	}
 }
+
+body[data-controller="events"][data-action="show"] {
+	.container {
+		height: 100vh;
+		margin: 0px;
+
+		.row {
+			height: 100%;
+
+			#side-nav {
+				font-weight: 600;
+				text-transform: uppercase;
+				ul {
+					list-style: none;
+					margin-top: 100%;
+					li {
+			    	cursor: pointer;
+						margin: 0.5em 0em;
+				    font-size: 0.85em;
+			    	opacity: 0.4;
+			    	
+				    &.active {
+				    	color: black;
+				    	opacity: 1;
+				    }
+					}
+				}
+			}
+
+			#main {
+				background-color: #F7F7F7;
+				border: 1px solid grey;
+				padding: 10% 10% 10% 20%;
+				overflow: scroll;
+
+				#main-title {
+					font-weight: 600;
+					letter-spacing: 0.2em;
+					text-transform: uppercase;
+					color: black;
+			    margin-bottom: 2em;
+			    input {
+			    	@extend #main-title;
+			    	border: none;
+	    	    background: transparent;
+	    	    font-size: 40px;
+	    	    text-decoration: none;
+	    	    margin-bottom: 0em;
+	    	    font-weight: 600;
+	    	    textarea, input, button { outline: none; }
+			    }
+				}
+
+				.tab {
+					display: none;
+
+					.title {
+				    color: black;
+				    font-weight: 600;
+				    text-transform: uppercase;
+				    font-size: 1.3em;
+				    margin-bottom: 2em;
+
+				    span {
+					    border-bottom: 1px solid black;
+					    padding-bottom: 5px;
+				    }
+					}
+
+					&.active {
+						display: block;
+					}
+
+					ul {
+						.row {
+							// height: 0px;
+						}
+
+						.past {
+					    	color: red;
+				    }
+
+						.date-block {
+							.row {
+						    height: 45%;
+							}
+						}
+
+						.date-content {
+					    margin-top: 2.5%;
+						}
+
+						.date-address {
+					    word-wrap: break-word;
+					    a {
+					    	position: relative;
+					    	bottom: 1em;
+					    }
+						}
+
+						.greyline {
+					    width: 100%;
+					    border-bottom: 0.5px solid grey;
+					    opacity: 0.3;
+					    margin-bottom: 0.7em;
+						}
+						
+					}
+				}
+			}
+		}
+		
+	}
+}

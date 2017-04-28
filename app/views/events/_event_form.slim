@@ -3,9 +3,9 @@
     .row
       .col-4
         = f.input :title, autofocus: true
-    .row
-    	.col-4
-	    	= f.simple_fields_for :event_dates do |ed|
-	    		= ed.input :date, as: :datetime
+    / .row
+    / 	.col-4
+	   /  	= f.simple_fields_for :event_dates do |ed|
+	   /  		= ed.input :date, as: :datetime
   .form-actions
     = f.button :submit, 'Save', class: 'btn-primary'

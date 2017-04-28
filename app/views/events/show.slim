@@ -1,40 +1,44 @@
-.card
-  .card-header 
-    - if current_user.admin?
-      | Event Info
-    - else
-      = @object.title
-  .card-content
-    - if current_user.admin?
-      table.table
-        thead
-          tr
-            th Título
-            th Fecha de creación
-            th Fecha de actualización
-            th Recurrencia
-            th Acciones
-        tbody
-          tr
-            td
-              = @object.title
-            td
-              = @object.created_at.strftime("%B %d, %Y")
-            td
-              = @object.updated_at.strftime("%B %d, %Y")
-            td
-              = @object.recurrence
-            td
-              span.badge.badge-primary
-                / = link_to 'View', event_date_path(id: @event_dates.first.id)
-                = link_to 'Nueva Fecha', new_event_date_path(event_id: @object.id)
-              | /
-              span.badge.badge-primary
-                = link_to 'Crear Informacion', new_event_event_info_path(event_id: @object.id)
+.row#reg data-id="#{@object.id}"
+  .col-3#side-nav
+    ul.align-middle
+      - @event_info.each do |ei|
+        li data-title="#{ei.id}"
+          = ei.title.size > 20 ? "#{ei.title[0..18]}..." : ei.title
+      li data-title="dates"
+        | Fechas
+      - unless current_user.admin?
+        li data-title="register"
+          | Registrar
+      - else
+        li
+          = link_to '+ Agregar', new_event_event_info_path(event_id: @object.id)
+        li
+          = link_to 'Editar', edit_event_path(id: @object.id)
 
-= render partial: 'event_info/event_feed', locals: { objects: @event_info }
-
-= render partial: 'event_dates/event_date_grid', locals:\
-                                              { objects: @event_dates[0, 5],
-                                                klass: 'EventDate',
-                                                parent: @object }
+  .col-9#main
+    h1#main-title
+      - if current_user.admin?
+        input type="text" value="#{@object.title}"
+      - else
+        = @object.title
+    - @event_info.each_with_index do |ei, i|
+      .tab id="#{ei.id}" class="#{i == 0 ? 'active' : ''}"
+        .title
+          span.sub 
+            = "0#{i+1}. "
+          = "#{ei.title}"
+        .body
+          = ei.description
+    .tab id="register" class="#{@event_info.any? ? '' : 'active'}"
+      .title
+        span.sub 
+          = "0#{@event_info.count + 1}. "
+        | Registrar
+    .tab id="dates"
+      .title
+        span.sub 
+          = "0#{@event_info.count + 1}. "
+        | Fechas
+      .body
+        = render partial: 'events/event_date_feed', locals:\
+                                                    { event_dates: @event_dates}
