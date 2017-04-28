@@ -11,8 +11,17 @@ body[data-controller="event_dates"] {
 }
 
 body[data-controller="events"][data-action="index"] {
+	a {
+		&:hover {
+			text-style:none;
+		}
+	}
 	.event_feed {
 		margin-top: 3em;
+		.card {
+	    margin-bottom: 1.5em;
+	    box-shadow: 15px 25px 72px -22px rgba(122,117,122,0.85);
+		}
 	}
 
 	.card {
@@ -20,6 +29,9 @@ body[data-controller="events"][data-action="index"] {
 		text-style: none;
 		border-radius: 6px;
     overflow: hidden;
+
+    @include box-shadow( 10px, 10px, 21px, -8px, rgba(140,136,140,1));
+
 
 		.title {
 	    font-size: 1.3em;
@@ -38,14 +50,18 @@ body[data-controller="events"][data-action="index"] {
 }
 
 body[data-controller="events"][data-action="show"] {
+	background-color: #E4E4E4;
+
 	.container {
 		height: 100vh;
-		margin: 0px;
+    margin-top: 5%;
+    margin-left: 5%;
 
 		.row {
 			height: 100%;
 
 			#side-nav {
+				background-color: white;
 				font-weight: 600;
 				text-transform: uppercase;
 				ul {
@@ -73,7 +89,6 @@ body[data-controller="events"][data-action="show"] {
 
 			#main {
 				background-color: #F7F7F7;
-				border: 1px solid grey;
 				padding: 10% 10% 10% 20%;
 				overflow: scroll;
 
@@ -116,6 +131,8 @@ body[data-controller="events"][data-action="show"] {
 					}
 
 					ul {
+						padding: 0px;
+
 						.row {
 							// height: 0px;
 						}

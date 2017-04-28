@@ -40,3 +40,10 @@
 //   -webkit-transform: translate($x, $y); /* Safari */
 //   transform: translate($x, $y);
 // }
+
+
+@mixin box-shadow($up, $down, $left, $right, $color) {
+	-webkit-box-shadow: $up $down $left $right $color;
+	-moz-box-shadow: $up $down $left $right $color;
+	box-shadow: $up $down $left $right $color;
+}
