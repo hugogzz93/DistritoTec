@@ -10,6 +10,33 @@ body[data-controller="event_dates"] {
 	}
 }
 
+body[data-controller="events"][data-action="index"] {
+	.event_feed {
+		margin-top: 3em;
+	}
+
+	.card {
+		color: #474857;
+		text-style: none;
+		border-radius: 6px;
+    overflow: hidden;
+
+		.title {
+	    font-size: 1.3em;
+	    font-weight: 700;
+	    padding-top: 2%;
+		}
+
+		img {
+			// width: 20rem;
+		}
+
+		.img-container {
+			max-width: 20%;
+		}
+	}
+}
+
 body[data-controller="events"][data-action="show"] {
 	.container {
 		height: 100vh;
@@ -29,6 +56,12 @@ body[data-controller="events"][data-action="show"] {
 						margin: 0.5em 0em;
 				    font-size: 0.85em;
 			    	opacity: 0.4;
+
+			    	&:hover {
+			    		color: black;
+			    		opacity: 0.7;
+			    		transition: all 0.3s ease-in;
+			    	}
 			    	
 				    &.active {
 				    	color: black;
