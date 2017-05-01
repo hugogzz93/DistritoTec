@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   has_many :event_info, dependent: :destroy
   has_many :event_dates, inverse_of: :event, dependent: :destroy
   has_many :event_registrations, through: :event_dates, dependent: :destroy
-  has_attached_file :avatar, styles: { medium: "300x300>", small: "150x150>", thumb: "100x100>" },
+  has_attached_file :avatar, styles: { medium: "300x300", small: "155x170!", thumb: "100x100>" },
                     default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 

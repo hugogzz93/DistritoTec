@@ -1,5 +1,5 @@
 .row
-	.col-3
+	.col-3#side-nav
 		= render partial: 'shared/event_side_bar', locals: { event_dates: EventDate.where('date >= :now', now: Time.zone.now).limit(4).reverse}
-	.col-9
+	.col-9.main
 		= render partial: 'event_feed', locals: { events: @objects }

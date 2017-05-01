@@ -1,12 +1,12 @@
 .event_feed
 	- events.each do |e|
 		= link_to event_path(id: e.id) do
-			.card
+			.card.event_card
 				.row
-					.col-3.img-container
-						= image_tag e.avatar.url(:small), class: 'card-img-left'
-					.col-9
+					.col-5.img-container
+						= image_tag e.avatar.url(:medium), class: 'card-img-left'
+					.col-6
 						.card-content.title
 							 = e.title
 						.description
-							= e.description.size > 250 ? e.description[0..247] + '...' : e.description
+							= e.description.size > 310 ? e.description[0..307] + '...' : e.description
