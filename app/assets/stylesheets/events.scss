@@ -77,6 +77,14 @@ body[data-controller="events"][data-action="index"] {
 body[data-controller="events"][data-action="show"] {
 	background-color: #E4E4E4;
 
+	.danger {
+		color: red;
+	}
+
+	.info {
+		color: #FFCA6F;
+	}
+
 	.container {
 		height: 100vh;
     margin-top: 5%;

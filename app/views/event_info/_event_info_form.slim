@@ -1,4 +1,4 @@
-= simple_form_for object, url: event_event_info_index_path do |f|
+= simple_form_for object, url: object.id ? event_event_info_path : event_event_info_index_path do |f|
 	.form-inputs
 		.row
 			.col-4
