@@ -12,6 +12,7 @@ body[data-controller="event_dates"] {
 
 body[data-controller="events"][data-action="index"] {
 	background-color: #D4CDCD;
+  padding-top: 3em;
 
 	.container {
 		background-color: white;
@@ -20,6 +21,39 @@ body[data-controller="events"][data-action="index"] {
 
 		#side-nav {
 	    background-color: #171D1F;
+
+	    .name_link {
+	    	text-align: center;
+
+	    	a {
+		    	color: #E0E1E1;
+	    	}
+	    }
+		
+			.center-block {  
+			  display: block;  
+			  margin-right: auto;  
+			  margin-left: auto; 
+			}
+
+	    .avatar {
+  	    height: 95px;
+		    width: 95px;
+		    overflow: hidden;
+		    border-radius: 50%;
+
+		    img {
+	  	    position: relative;
+			    left: 2%;
+			    top: -10%;
+		    }
+	    }
+
+	    .top {
+	    	margin-left:30%;
+	    	margin-top:10%;
+	    	margin-bottom:1em;
+	    }
 
 	    #side-bar {
 		    color: #E0E1E1;

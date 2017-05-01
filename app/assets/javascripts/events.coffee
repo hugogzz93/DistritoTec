@@ -35,3 +35,6 @@ $(document).on 'events#show:loaded', ->
 			success: (data, textStatus, jqXHR) ->
           swal("Success", "You have been registered", "success")
 		}
+
+$(document).on 'events#index:loaded', ->
+	$('.notice, .alert, .navbar').remove()
