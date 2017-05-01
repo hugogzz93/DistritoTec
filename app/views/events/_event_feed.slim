@@ -1,4 +1,9 @@
 .event_feed
+	- if current_user.admin?
+		.row.btn-row
+			.btn
+				= link_to 'Nuevo', new_event_path
+	.row
 	- events.each do |e|
 		= link_to event_path(id: e.id) do
 			.card.event_card

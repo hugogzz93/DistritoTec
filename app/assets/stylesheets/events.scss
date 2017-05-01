@@ -76,6 +76,16 @@ body[data-controller="events"][data-action="index"] {
 	}
 	.event_feed {
 		margin-top: 3em;
+		
+		.btn-row {
+	    padding: 1em;
+		}
+
+		.btn {
+			background-color: #FF6C6A;
+			color: white;
+		}
+
 		.card {
 	    margin-bottom: 1.5em;
 	    -webkit-box-shadow: 7px 9px 49px -11px rgba(0,0,0,0.75);
