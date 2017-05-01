@@ -16,7 +16,7 @@ $(document).on 'events#show:loaded', ->
 
 	$('.notice, .alert, .navbar').remove()
 
-	$('li').on 'click', (e) ->
+	$('#side-nav ul li').on 'click', (e) ->
 		trgt = $(e.target).data 'title'
 		$('.active').removeClass 'active'
 		$(e.target).addClass 'active'
