@@ -2,9 +2,11 @@
  html: {  }, defaults: { } do |f|
   .form-inputs
     = f.input :email, placeholder: "example@mail.com",  autofocus: true
+    = f.input :name
     = f.input :password, hint: ("#{@minimum_password_length} characters minimum"\
                          if @minimum_password_length)
     = f.input :password_confirmation
+    = f.input :avatar, as: :file
 
   .form-actions
     = f.button :submit, "Sign Up"
