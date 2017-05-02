@@ -1,10 +1,11 @@
 ul
-	li.row
-		.col-2
-		.date-content.col-8
-			.date-address
-				= link_to 'Nueva Fecha', new_event_date_path(event_id: @object.id)
-	.greyline
+	- if current_user.admin?
+		li.row
+			.col-2
+			.date-content.col-8
+				.date-address
+					= link_to 'Nueva Fecha', new_event_date_path(event_id: @object.id)
+		.greyline
 
 	- event_dates.each do |ed|
 		li.row

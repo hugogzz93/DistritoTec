@@ -4,9 +4,9 @@
 		= f.input :user_id, as: :hidden, input_html: { value: current_user.id}
 		.row
 			.col-4
-				= f.input :person_name, label: 'Nombre'
+				= f.input :person_name, label: 'Nombre', input_html: { value: current_user.name }
 			.col-6
-				= f.input :email, label: 'Correo'
+				= f.input :email, label: 'Correo', input_html: { value: current_user.email }
 		.row
 			.col-4
 				= f.input :special_type, label: 'Tipo', as: :select,
@@ -14,19 +14,19 @@
 		.merchant-fields.squished
 			.row
 				.col-6
-					= f.input :business_name
+					= f.input :business_name, label: 'Nombre de Negocio'
 			.row
 				.col-6
-					= f.input :product_name
+					= f.input :product_name, label: 'Nombre Producto'
 			.row
 				.col-4
-					= f.input :phone
+					= f.input :phone, label: 'Teléfono'
 			.row
 				.col-8
-					= f.input :social_media_url
+					= f.input :social_media_url, label: 'Sitio Web'
 			.row
 				.col-8
-					= f.input :business_description, as: :text
+					= f.input :business_description, as: :text, label: 'Descripción'
 			.row
 				.col-4
 					= f.input :stand

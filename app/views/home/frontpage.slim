@@ -10,9 +10,9 @@ nav#sidebar-wrapper
     - if user_signed_in?
       -if current_user.admin?
         li
-          = link_to 'Users', users_path
+          = link_to 'Usuarios', users_path
       li 
-        = link_to 'Events', events_path
+        = link_to 'Eventos', events_path
       hr
     - else
       li
@@ -38,7 +38,10 @@ header#top.header
     h1 Distrito Tec
     h3 Lorem ipsum dolor sit amet
     br/
-    = link_to 'Registrate', new_user_registration_path, class: 'btn btn-dark btn-lg'
+    - if user_signed_in?
+      = link_to 'Eventos', events_path, class: 'btn btn-dark btn-lg'
+    - else
+      = link_to 'Registrate', new_user_registration_path, class: 'btn btn-dark btn-lg'
 /! About
 section#about.about
   .container

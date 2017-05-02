@@ -5,6 +5,13 @@
 	.col-12.name_link
 		= link_to current_user.name, edit_user_path(current_user), class: 'center-block'
 
+	ul.col-12
+		-if current_user.admin?
+			li
+				i.fa.fa-users
+					= link_to ' Usuarios', users_path
+
+
 .card#side-bar
 	.card-header Proximos
 	.card-content

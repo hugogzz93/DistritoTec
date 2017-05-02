@@ -21,13 +21,22 @@ body[data-controller="events"][data-action="index"] {
 
 		#side-nav {
 	    background-color: #171D1F;
+	    color: #E0E1E1;
+
+    	a {
+	    	color: #E0E1E1;
+	    	font-family: "Raleway", sans-serif;
+    	}
+
+    	ul {
+    		list-style: none;
+    		text-align: center;
+		    padding: 0px;
+		    margin-top: 1em;
+    	}
 
 	    .name_link {
 	    	text-align: center;
-
-	    	a {
-		    	color: #E0E1E1;
-	    	}
 	    }
 		
 			.center-block {  
