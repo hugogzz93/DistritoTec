@@ -10,6 +10,8 @@
       /   li data-title="register"
       /     | Registrar
       / - else
+      li 
+        = link_to 'Regresar', events_path
       - if current_user.admin?
         li
           = link_to 'Agregar', new_event_event_info_path(event_id: @object.id)

@@ -3,7 +3,7 @@
     .alert.alert-success role="alert"
       strong
         | Registrado
-  - else
+  - elsif Time.zone.now <= @object.date
   	.card
   		.card-header Registro
   		.card-block
